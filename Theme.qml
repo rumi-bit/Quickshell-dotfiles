@@ -30,7 +30,7 @@ QtObject {
     
 
     // ── Geometry ──────────────────────────────────────────────
-    readonly property int barHeight:  32
+    readonly property int barHeight:  28
     readonly property int padding:    8
     readonly property int radius:     20
     readonly property int gap:        6
