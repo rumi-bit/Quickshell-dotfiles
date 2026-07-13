@@ -5,18 +5,22 @@ import Niri
 
 
 Row {
-    id: workspaces
+    id: root
     spacing: Root.Theme.gap
+    property int activeWorkspace: 0
+
     
 
     Row {
         spacing: 10
+        
 
         Repeater {
             model: niri.workspaces
             delegate: Rectangle {
                 id: ui
                 state: mouse.containsMouse ? "hover" : (model.isFocused ? "focused" : "normal")
+                onStateChanged: if (model.isFocused) root.activeWorkspace = model.index
                 height: 17
                 radius: 10
 
@@ -24,6 +28,8 @@ Row {
                     anchors.verticalCenter: parent.verticalCenter
                     anchors.horizontalCenter: parent.horizontalCenter
                     text: model.index
+                    font.family: Root.Theme.fontFamily
+                    font.pointSize: 10
                 }
 
                 MouseArea {
@@ -38,7 +44,7 @@ Row {
                     NumberAnimation { duration: 250; easing.type: Easing.InOutQuad }
                 }
                 Behavior on color {
-                    ColorAnimation { duration: 250; }
+                    ColorAnimation { duration: 150; }
                 }
                 states: [
                     State{

@@ -3,11 +3,10 @@ import QtQuick.Layouts
 import qs.bar.components
 import "../../" as Root
 
-RowLayout {
+Item {
     id: content
 
     anchors.fill: parent
-    
 
     FontMetrics {
         id: fm
@@ -15,75 +14,42 @@ RowLayout {
         font.pixelSize: 55
     }
 
-    Item {
-        id: layout
-        Layout.fillWidth: true
-        Layout.fillHeight: true
+    Rectangle {
+        anchors.fill: parent
+        radius: Root.Theme.radius
+        color: Root.Theme.main2
+    }
 
-        Item {
-            anchors.left: parent.left
-            anchors.leftMargin: 8
-            anchors.verticalCenter: parent.verticalCenter
-            implicitWidth: left.implicitWidth
-            implicitHeight: left.implicitHeight
+    RowLayout {
+        anchors.fill: parent
+        anchors.leftMargin: 8
+        anchors.rightMargin: 8
 
-            Rectangle {
-                anchors.verticalCenter: parent.verticalCenter
-                anchors.horizontalCenter: parent.horizontalCenter
-                width: parent.implicitWidth + 16
-                height: layout.height
-                radius: Root.Theme.radius
-                color: Root.Theme.main2
-            }
-
-            RowLayout {
-                id: left
-
-                Workspaces {
-                }
-            }
+        RowLayout {
+            id: left
+            Layout.alignment: Qt.AlignLeft | Qt.AlignVCenter
+            Image{}
+            Workspaces {id: workspace}
+            Windows {index: workspace.activeWorkspace}
         }
 
         Item {
-            anchors.centerIn: parent
-            implicitWidth: center.implicitWidth
-            implicitHeight: center.implicitHeight
+            Layout.fillWidth: true
+        }
 
-            Rectangle {
-                anchors.verticalCenter: parent.verticalCenter
-                anchors.horizontalCenter: parent.horizontalCenter
-                width: parent.implicitWidth + 16
-                height: layout.height
-                radius: Root.Theme.radius
-                color:  Root.Theme.main2
-            }
-
-            RowLayout {
-                id: center
-            }
+        RowLayout {
+            id: center
+            Layout.alignment: Qt.AlignCenter | Qt.AlignVCenter
         }
 
         Item {
-            anchors.right: parent.right
-            anchors.verticalCenter: parent.verticalCenter
-            anchors.rightMargin: 8
-            implicitWidth: right.implicitWidth
-            implicitHeight: right.implicitHeight
-
-            Rectangle {
-                anchors.verticalCenter: parent.verticalCenter
-                anchors.horizontalCenter: parent.horizontalCenter
-                width: parent.implicitWidth + 16
-                height: layout.height
-                radius: Root.Theme.radius
-                color: Root.Theme.main2
-            }
-
-            RowLayout {
-                id: right
-            }
+            Layout.fillWidth: true
         }
 
+        RowLayout {
+            id: right
+            Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
+        }
     }
 
 }
