@@ -33,7 +33,7 @@ RowLayout {
                 width: parent.implicitWidth + 16
                 height: layout.height
                 radius: Root.Theme.radius
-                color: Root.Theme.main
+                color: Root.Theme.main2
             }
 
             RowLayout {
@@ -55,7 +55,7 @@ RowLayout {
                 width: parent.implicitWidth + 16
                 height: layout.height
                 radius: Root.Theme.radius
-                color:  Root.Theme.main
+                color:  Root.Theme.main2
             }
 
             RowLayout {
@@ -76,7 +76,7 @@ RowLayout {
                 width: parent.implicitWidth + 16
                 height: layout.height
                 radius: Root.Theme.radius
-                color: Root.Theme.main
+                color: Root.Theme.main2
             }
 
             RowLayout {

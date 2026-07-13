@@ -4,6 +4,7 @@ import Quickshell
 import Quickshell.Io
 import "../../" as Root
 
+
 // ── Clock widget ───────────────────────────────────────────────
 // Runs `date` every second.  Replace with a Qt.formatDateTime binding
 // once you're comfortable — the Process approach is a common quickshell

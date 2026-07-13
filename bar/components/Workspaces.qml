@@ -9,23 +9,21 @@ Row {
     
 
     Row {
-        spacing: 15
+        spacing: 10
 
         Repeater {
             model: 6
             delegate: Rectangle {
                 required property int index
 
-                width: 20
-                height: 20
-                color: "transparent"
-                
-
+                width: 30
+                height: 17
+                color: Root.Theme.pink
+                radius: 10
                 Text {
-                    color: '#ffe193'
-                    anchors.centerIn: parent
-                    text: (index + 1)
-                    font.pixelSize:20
+                    anchors.verticalCenter: parent.verticalCenter
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    text: index + 1
                 }
         }
     }
