@@ -1,59 +1,89 @@
 import QtQuick
 import QtQuick.Layouts
 import qs.bar.components
+import "../../" as Root
 
 RowLayout {
     id: content
 
     anchors.fill: parent
-    Layout.alignment: Qt.AlignVCenter
+    
 
     FontMetrics {
         id: fm
-        font.pixelSize: 55
-    }
 
-    Chevron {
-        Layout.alignment: Qt.AlignVCenter
-        Layout.topMargin: -(fm.descent * 0.95)
+        font.pixelSize: 55
     }
 
     Item {
         id: layout
-
         Layout.fillWidth: true
+        Layout.fillHeight: true
 
-        // Left
-        RowLayout {
-            id: left
+        Item {
             anchors.left: parent.left
+            anchors.leftMargin: 8
             anchors.verticalCenter: parent.verticalCenter
-            
-            Workspaces {
-                Layout.topMargin: -25
+            implicitWidth: left.implicitWidth
+            implicitHeight: left.implicitHeight
+
+            Rectangle {
+                anchors.verticalCenter: parent.verticalCenter
+                anchors.horizontalCenter: parent.horizontalCenter
+                width: parent.implicitWidth + 16
+                height: layout.height
+                radius: Root.Theme.radius
+                color: Root.Theme.main
             }
 
+            RowLayout {
+                id: left
 
+                Workspaces {
+                }
+            }
         }
 
-        // Center
-        RowLayout {
-            id: center
+        Item {
             anchors.centerIn: parent
+            implicitWidth: center.implicitWidth
+            implicitHeight: center.implicitHeight
+
+            Rectangle {
+                anchors.verticalCenter: parent.verticalCenter
+                anchors.horizontalCenter: parent.horizontalCenter
+                width: parent.implicitWidth + 16
+                height: layout.height
+                radius: Root.Theme.radius
+                color:  Root.Theme.main
+            }
+
+            RowLayout {
+                id: center
+            }
         }
 
-        // Right
-        RowLayout {
-            id: right
+        Item {
             anchors.right: parent.right
             anchors.verticalCenter: parent.verticalCenter
+            anchors.rightMargin: 8
+            implicitWidth: right.implicitWidth
+            implicitHeight: right.implicitHeight
+
+            Rectangle {
+                anchors.verticalCenter: parent.verticalCenter
+                anchors.horizontalCenter: parent.horizontalCenter
+                width: parent.implicitWidth + 16
+                height: layout.height
+                radius: Root.Theme.radius
+                color: Root.Theme.main
+            }
+
+            RowLayout {
+                id: right
+            }
         }
 
-    }
-
-    Chevron {
-        mirrored: true
-        Layout.topMargin: -(fm.descent * 1.1)
     }
 
 }

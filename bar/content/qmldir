@@ -1,4 +1,2 @@
 module qs.bar.content
-Border 1.0 Border.qml
-Chevron 1.0 Chevron.qml
 Content 1.0 Content.qml

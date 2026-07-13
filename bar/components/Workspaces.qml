@@ -22,10 +22,10 @@ Row {
                 
 
                 Text {
-                    color: "white"
+                    color: '#ffe193'
                     anchors.centerIn: parent
-                    text: "[" + (index + 1) + "]"
-                    font.pixelSize:28
+                    text: (index + 1)
+                    font.pixelSize:20
                 }
         }
     }

@@ -16,6 +16,7 @@ QtObject {
     readonly property color yellow:      "#f9e2af"
     readonly property color blue:        "#89b4fa"
     readonly property color transparent: "#00000000"
+    readonly property color main: '#d27389'
 
     // ── Typography ────────────────────────────────────────────
     readonly property string fontFamily:     "Roboto"
@@ -28,7 +29,7 @@ QtObject {
     // ── Geometry ──────────────────────────────────────────────
     readonly property int barHeight:  32
     readonly property int padding:    8
-    readonly property int radius:     6
+    readonly property int radius:     20
     readonly property int gap:        6
     readonly property int iconSize:   16
 }
