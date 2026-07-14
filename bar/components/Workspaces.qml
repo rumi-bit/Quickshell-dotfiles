@@ -19,7 +19,7 @@ Row {
             model: niri.workspaces
             delegate: Rectangle {
                 id: ui
-                state: mouse.containsMouse ? "hover" : (model.isFocused ? "focused" : "normal")
+                state: mouse.containsMouse ? "hover" : (model.isFocused ? "focused" : (model.isUrgent ? "urgent" : "normal" ))
                 onStateChanged: if (model.isFocused) root.activeWorkspace = model.index
                 height: 17
                 radius: 10
@@ -60,7 +60,10 @@ Row {
                     State {
                         name: "hover"
                         PropertyChanges {target: ui; color: '#ffffff'; width: model.isFocused ? 45 : 38} 
-                        
+                    },
+                    State{
+                        name: "urgent"
+                        PropertyChanges{target: ui; color: "#ffffff"}
                     }
                 ]
             }
