@@ -5,10 +5,7 @@ import Quickshell.Io
 import "../../" as Root
 
 
-// ── Clock widget ───────────────────────────────────────────────
-// Runs `date` every second.  Replace with a Qt.formatDateTime binding
-// once you're comfortable — the Process approach is a common quickshell
-// pattern and easy to extend (e.g. swap `date` for a custom script).
+
 Item {
     id: clock
     implicitWidth: clockLabel.implicitWidth
@@ -18,7 +15,7 @@ Item {
 
     Process {
         id: dateProc
-        command: ["date", "+%a %b %d  %H:%M"]
+        command: ["date", "+%a %b %d  %H:%M:%S"]
         running: true
 
         stdout: SplitParser {

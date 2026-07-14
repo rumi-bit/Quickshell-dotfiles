@@ -40,6 +40,7 @@ Item {
         RowLayout {
             id: center
             Layout.alignment: Qt.AlignCenter | Qt.AlignVCenter
+            Clock {}
         }
 
         Item {

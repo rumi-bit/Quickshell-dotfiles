@@ -8,7 +8,7 @@ QtObject {
     readonly property color bg:          "#1e1e2e"  // base
     readonly property color surface:     "#313244"  // surface0
     readonly property color overlay:     "#45475a"  // surface1
-    readonly property color text:        "#cdd6f4"  // text
+    readonly property color text:        '#000000'  // text
     readonly property color subtext:     "#a6adc8"  // subtext0
     readonly property color accent:      "#cba6f7"  // mauve
     readonly property color green:       "#a6e3a1"

@@ -14,9 +14,6 @@ Item {
     Rectangle{
         id: ui
         implicitWidth: text.implicitWidth 
-        
-        
-        
         Text{
             id: text
             anchors.verticalCenter: parent.verticalCenter
