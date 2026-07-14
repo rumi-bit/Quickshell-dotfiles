@@ -20,6 +20,13 @@ Item {
         color: Root.Theme.main2
     }
 
+    
+    RowLayout {
+        id: center
+        anchors.centerIn: parent
+        Clock {}
+    }
+
     RowLayout {
         anchors.fill: parent
         anchors.leftMargin: 8
@@ -31,16 +38,6 @@ Item {
             Image{}
             Workspaces {id: workspace}
             Windows {index: workspace.activeWorkspace}
-        }
-
-        Item {
-            Layout.fillWidth: true
-        }
-
-        RowLayout {
-            id: center
-            Layout.alignment: Qt.AlignCenter | Qt.AlignVCenter
-            Clock {}
         }
 
         Item {

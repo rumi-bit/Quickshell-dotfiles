@@ -10,6 +10,7 @@ Scope {
     id: root
 
     PanelWindow {
+        id: bar
         color: "transparent"
         implicitHeight: Root.Theme.barHeight
         aboveWindows: true
@@ -25,16 +26,9 @@ Scope {
             left: 10
             right: 10
         }
-
-        
-        
         Content {
             anchors.fill: parent
         }
-        
-        
-        
-
     }
 
 }

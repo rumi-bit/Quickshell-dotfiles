@@ -3,6 +3,7 @@ import QtQuick.Layouts
 import Quickshell
 import Quickshell.Io
 import "../../" as Root
+import "" as Home
 
 
 
@@ -10,12 +11,14 @@ Item {
     id: clock
     implicitWidth: clockLabel.implicitWidth
     implicitHeight: clockLabel.implicitHeight
+    anchors.verticalCenter: parent.verticalCenter
+    anchors.horizontalCenter: parent.horizontalCenter
 
     property string timeText: ""
 
     Process {
         id: dateProc
-        command: ["date", "+%a %b %d  %H:%M:%S"]
+        command: ["date", "+%H:%M:%S"]
         running: true
 
         stdout: SplitParser {
@@ -37,6 +40,14 @@ Item {
         text: clock.timeText
         color: Root.Theme.text
         font.family: Root.Theme.fontFamily
-        font.pixelSize: Root.Theme.fontSize
+        font.pixelSize: Root.Theme.fontSizeLarge
+    }
+    MouseArea {
+        id: mouse
+        anchors.fill: parent
+        hoverEnabled: true
+        cursorShape: Qt.PointingHandCursor
+                    
+        onClicked: Home.Calander.calendar.visible = !Home.Calander.calendar.visible
     }
 }

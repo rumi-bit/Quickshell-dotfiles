@@ -26,7 +26,7 @@ QtObject {
     readonly property string fontFamilyMono: "Monocraft"
     readonly property int fontSizeSmall:  11
     readonly property int fontSize:       13
-    readonly property int fontSizeLarge:  15
+    readonly property int fontSizeLarge:  16
     
 
     // ── Geometry ──────────────────────────────────────────────
