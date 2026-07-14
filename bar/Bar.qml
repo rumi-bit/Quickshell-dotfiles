@@ -28,6 +28,7 @@ Scope {
         }
         Content {
             anchors.fill: parent
+            anchorWindow: bar
         }
     }
 

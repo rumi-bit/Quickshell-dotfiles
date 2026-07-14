@@ -21,7 +21,7 @@ QtObject {
         running: true
 
         stdout: SplitParser {
-            onRead: data => calendar.currentDayIndex = parseInt(data)
+            onRead: data => Calendar.currentDayIndex = parseInt(data)
         }
     }
     Process{
@@ -30,7 +30,7 @@ QtObject {
         running: true
 
         stdout: SplitParser {
-            onRead: data => calendar.currentMonth = data
+            onRead: data => Calendar.currentMonth = data
         }
     }
     Timer {

@@ -14,6 +14,7 @@ Item {
     anchors.verticalCenter: parent.verticalCenter
     anchors.horizontalCenter: parent.horizontalCenter
 
+    signal toggleCalendar()
     property string timeText: ""
 
     Process {
@@ -46,8 +47,7 @@ Item {
         id: mouse
         anchors.fill: parent
         hoverEnabled: true
-        cursorShape: Qt.PointingHandCursor
-                    
-        onClicked: Home.Calander.calendar.visible = !Home.Calander.calendar.visible
+        cursorShape: Qt.PointingHandCursor       
+        onClicked: clock.toggleCalendar()
     }
 }
