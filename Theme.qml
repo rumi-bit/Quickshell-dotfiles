@@ -19,6 +19,8 @@ QtObject {
     readonly property color main: '#ffffff'
     readonly property color pink: '#d27389'
     readonly property color main2: '#C1B492'
+    readonly property color dullpink: '#bcd27389'
+
     
 
     // ── Typography ────────────────────────────────────────────
@@ -27,6 +29,7 @@ QtObject {
     readonly property int fontSizeSmall:  11
     readonly property int fontSize:       13
     readonly property int fontSizeLarge:  16
+    readonly property int fontSizeMassive: 32
     
 
     // ── Geometry ──────────────────────────────────────────────

@@ -25,7 +25,7 @@ Item {
         id: center
         anchors.centerIn: parent
         Clock {onToggleCalendar: cal.popupVisible = !cal.popupVisible}
-        Calander {id: cal; anchorWindow: content.anchorWindow}
+        Calender {id: cal; anchorWindow: content.anchorWindow}
     }
 
     RowLayout {

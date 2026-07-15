@@ -11,8 +11,7 @@ Item {
     id: clock
     implicitWidth: clockLabel.implicitWidth
     implicitHeight: clockLabel.implicitHeight
-    anchors.verticalCenter: parent.verticalCenter
-    anchors.horizontalCenter: parent.horizontalCenter
+    
 
     signal toggleCalendar()
     property string timeText: ""
