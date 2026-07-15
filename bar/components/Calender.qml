@@ -12,6 +12,8 @@ Item{
     id: root
     property alias popupVisible: calendar.visible
     required property var anchorWindow
+    property int month: 0
+    
     
 
     PopupWindow{
@@ -23,60 +25,90 @@ Item{
         implicitHeight: 600
         visible: false
         color: "transparent"
+        onVisibleChanged: {
+            if (visible) {
+                month = Cal.currentMonth  
+            }
+        }
         Rectangle{
             anchors.fill: parent
             implicitHeight: calendar.implicitHeight
             implicitWidth: calendar.implicitWidth
             color: Root.Theme.dullpink
-            radius: Root.Theme.radius
+            bottomLeftRadius: Root.Theme.radius
+            bottomRightRadius: Root.Theme.radius
             Rectangle{
+                id: test
                 anchors.fill: parent 
                 anchors.margins: 28
-                color: Root.Theme.main2
+                color: Root.Theme.main
                 radius: Root.Theme.radius
                 RowLayout {
                     anchors.fill: parent
+                    anchors.topMargin: 35
                     Text {
-                        anchors.left: parent.left
-                        anchors.top: parent.top
+                        Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                         leftPadding: 40
-                        topPadding: 35
-                        text: Cal.months[Cal.currentMonth]
+                        text: Cal.months[month]
                         font {
-                        family: Root.Theme.fontFamily
-                        pixelSize: 50
+                            family: Root.Theme.fontFamily
+                            pixelSize: 50
                         }
                     }
                     Item{
                         Layout.fillWidth: true
                     }
                     Rectangle{
-                        anchors.right: parent.right
-                        Text{
-                            text: "<"
-                            font {
-                                family: Root.Theme.fontFamily
-                                pixelSize: 30
+                        Layout.alignment: Qt.AlignTop | Qt.AlignRight
+                        Layout.rightMargin: 150
+                        RowLayout{
+                            spacing:20
+                            Rectangle{
+                                color: Root.Theme.spookymain
+                                width: 50
+                                height: 50
+                                radius: 5
+                                Text{
+                                    text: "<"
+                                    anchors.centerIn: parent
+                                    font {
+                                        family: Root.Theme.fontFamily
+                                        pixelSize: 40
+                                    }
+                                }
+                                MouseArea{
+                                    id: mouse2
+                                    anchors.fill: parent
+                                    hoverEnabled: true
+                                    cursorShape: Qt.PointingHandCursor
+                                    onClicked: month = (month - 1 + 12) % 12
+                                }
                             }
-
-                        }
-
-                    }
-                    Rectangle{
-                        Text {
-                            text: ">"
-                            font {
-                                family: Root.Theme.fontFamily
-                                pixelSize: 30
+                            Rectangle{
+                                color: mouse.containsMouse  ? Root.Theme.extraspookymain : Root.Theme.spookymain
+                                width: 50
+                                height: 50
+                                radius: 5
+                                Text {
+                                    text: ">"
+                                    anchors.centerIn: parent
+                                    font {
+                                        family: Root.Theme.fontFamily
+                                        pixelSize: 40
+                                    }
+                                }
+                                MouseArea{
+                                    id: mouse
+                                    anchors.fill: parent
+                                    hoverEnabled: true
+                                    cursorShape: Qt.PointingHandCursor
+                                    onClicked: month = (month + 1) % 12
+                                }
                             }
                         }
-
-                    }
+                    }   
                 }
-                
-
             }
-
         }
     }
 }

@@ -16,10 +16,12 @@ QtObject {
     readonly property color yellow:      "#f9e2af"
     readonly property color blue:        "#89b4fa"
     readonly property color transparent: "#00000000"
-    readonly property color main: '#ffffff'
     readonly property color pink: '#d27389'
-    readonly property color main2: '#C1B492'
+    readonly property color main: '#C1B492'
     readonly property color dullpink: '#bcd27389'
+    readonly property color spookymain: '#9d9276'
+    readonly property color extraspookymain: '#7d745d'
+
 
     
 
