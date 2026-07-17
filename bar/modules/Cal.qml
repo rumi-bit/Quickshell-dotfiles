@@ -13,7 +13,8 @@ Item {
     property int currentDayIndex: 0
     property int currentMonth: 0
     property int currentYear: 2026  //dont change this unless its been like 6 months
-    property string firstday: ""
+    property int firstdayindex: 0
+    property int month: 0
     Timer {
         interval: 60000
         running: true
@@ -26,6 +27,6 @@ Item {
         currentMonth = d.getMonth()
         currentYear = d.getFullYear()
         currentDayIndex = d.getDay()
-        firstday = new Date(currentYear, currentMonth, 1).getDay()
+        firstdayindex = new Date(currentYear, month, 1).getDay()
     }
 }

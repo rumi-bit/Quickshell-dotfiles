@@ -12,7 +12,6 @@ Item{
     id: root
     property alias popupVisible: calendar.visible
     required property var anchorWindow
-    property int month: 0
     
     
 
@@ -27,7 +26,8 @@ Item{
         color: "transparent"
         onVisibleChanged: {
             if (visible) {
-                month = Cal.currentMonth  
+                Cal.month = Cal.currentMonth  
+                Cal.firstDay()
             }
         }
         Rectangle{
@@ -49,7 +49,7 @@ Item{
                     Text {
                         Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                         leftPadding: 40
-                        text: Cal.months[month]
+                        text: Cal.months[Cal.month]
                         font {
                             family: Root.Theme.fontFamily
                             pixelSize: 50
@@ -81,7 +81,10 @@ Item{
                                     anchors.fill: parent
                                     hoverEnabled: true
                                     cursorShape: Qt.PointingHandCursor
-                                    onClicked: month = (month - 1 + 12) % 12
+                                    onClicked: {
+                                        Cal.month = (Cal.month - 1 + 12) % 12
+                                        Cal.firstDay()
+                                    }
                                 }
                             }
                             Rectangle{
@@ -102,11 +105,60 @@ Item{
                                     anchors.fill: parent
                                     hoverEnabled: true
                                     cursorShape: Qt.PointingHandCursor
-                                    onClicked: month = (month + 1) % 12
+                                    onClicked: {
+                                        Cal.month = (Cal.month + 1) % 12
+                                        Cal.firstDay()
+                                    }
                                 }
                             }
                         }
                     }   
+                }
+                RowLayout{
+                    anchors.fill: parent
+                    spacing: 14
+                    Repeater{
+                        id: day
+                        model: Cal.days
+                        delegate: Text{
+                            text: modelData
+                            Layout.alignment: Qt.AlignHCenter | Qt.AlignTop
+                            Layout.topMargin: 120
+                            font {
+                                family: Root.Theme.fontFamily
+                                pixelSize: 17
+                            }
+                        }
+                    }
+                }
+                Column {
+                    spacing: 30
+                    Repeater {
+                        model: Math.ceil((Cal.monthLengths[Cal.month] + Cal.firstdayindex) / 7)
+                        delegate: Row {
+                            id: weekRow
+                            spacing: 20
+                            readonly property int rowIdx: index
+                            Repeater {
+                                model: 7
+                                delegate: Rectangle {
+                                    property int day: (weekRow.rowIdx * 7) + index - Cal.firstdayindex + 1
+                                    width: 40
+                                    height: 40
+                                    color: Root.Theme.spookymain
+                                    Text {
+                                        id: number
+                                        anchors.centerIn: parent
+                                        text: (day >= 1 && day <= Cal.monthLengths[Cal.month]) ? day : ""
+                                        font {
+                                            family: Root.Theme.fontFamily
+                                            pixelSize: 20
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
                 }
             }
         }
