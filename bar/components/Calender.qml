@@ -133,18 +133,22 @@ Item{
                 }
                 Column {
                     spacing: 30
+                    topPadding: 140
+                    leftPadding: 30
                     Repeater {
                         model: Math.ceil((Cal.monthLengths[Cal.month] + Cal.firstdayindex) / 7)
                         delegate: Row {
                             id: weekRow
-                            spacing: 20
+                            spacing: 58
+
                             readonly property int rowIdx: index
                             Repeater {
                                 model: 7
                                 delegate: Rectangle {
                                     property int day: (weekRow.rowIdx * 7) + index - Cal.firstdayindex + 1
-                                    width: 40
-                                    height: 40
+                                    width: 50
+                                    height: 50
+                                    radius: 6
                                     color: Root.Theme.spookymain
                                     Text {
                                         id: number
